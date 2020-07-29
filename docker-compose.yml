@@ -1,0 +1,11 @@
+version: "3"
+services:
+    www:
+        container_name: "apache"
+        build: .
+        ports:
+            - "80:80"
+        volumes:
+            - ./laravel6:/var/www/html/
+        networks:
+            - default
