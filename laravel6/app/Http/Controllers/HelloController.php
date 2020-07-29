@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 class HelloController extends Controller
 {
     
-    public function index()
+    public function about()
     {
-        $varaible = "Hello from controller";
+        return view('about');
+    }
     
-        return view('hello', ["someData"=>$varaible]);
+    public function services()
+    {
+        $services = ["Service 1","Service 2","Service 3"];
+        
+        return view('services', ["services" => $services]);
     }
 }
