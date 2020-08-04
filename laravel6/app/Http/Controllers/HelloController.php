@@ -11,11 +11,5 @@ class HelloController extends Controller
     {
         return view('about');
     }
-    
-    public function services()
-    {
-        $services = \App\Service::all();
-        
-        return view('services', ["services" => $services]);
-    }
+
 }
