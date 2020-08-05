@@ -25,3 +25,8 @@ Route::post('/service', "ServiceController@store");
 Route::get('/sub/hello', function () {
      return view('sub.hello');
 });
+
+
+Route::get("/customers", "CustomerController@index");
+Route::get("/customers/create", "CustomerController@create");
+Route::post("/customers/store", "CustomerController@store");
