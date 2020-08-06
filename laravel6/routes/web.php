@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Mail\WelcomeMail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    
     return view('welcome');
 });
 
@@ -30,3 +32,14 @@ Route::get('/sub/hello', function () {
 Route::get("/customers", "CustomerController@index");
 Route::get("/customers/create", "CustomerController@create");
 Route::post("/customers/store", "CustomerController@store");
+Route::get("/customers/{customer_id}", "CustomerController@show");
+Route::get("/customers/{customer_id}/edit", "CustomerController@edit");
+Route::put("/customers/{customer_id}", "CustomerController@update");
+Route::delete("/customers/{customer_id}", "CustomerController@destroy");
+
+
+Route::get("/email", function ()
+{
+    Mail::to("somewhere@jemtx.com")->send(new WelcomeMail());
+    return new WelcomeMail();
+});
