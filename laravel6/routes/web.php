@@ -43,3 +43,6 @@ Route::get("/email", function ()
     Mail::to("somewhere@jemtx.com")->send(new WelcomeMail());
     return new WelcomeMail();
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
