@@ -35,7 +35,7 @@ class QuestionnaireController extends Controller
     public function show(Questionnaire $questionnaire)
     {        
         //Lazy load relations
-        $questionnaire->load('questions.answers');
+        $questionnaire->load('questions.answers.responses');
         
         return view("questionnaire.show", ["questionnaire"=>$questionnaire]);
     }

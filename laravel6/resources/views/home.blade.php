@@ -17,6 +17,28 @@
                     <a href ="questionnaires/create" class="btn btn-dark">Create new questionnaire</a>
                 </div>
             </div>
+            
+            <div class="card mt-4">
+                <div class="card-header">My Questionnaires</div>
+
+                <div class="card-body">
+                    <ul class ="list-group">
+                        @foreach($questionnaires AS $questionnaire)
+                            <li class ="list-group-item">
+                                <a href ="{{$questionnaire->path()}}">{{$questionnaire->title}}</a>
+                                
+                                <div class ="mt-2">
+                                    <small>Share</small>
+                                    <p>
+                                        <a href ="{{$questionnaire->publicPath()}}">{{$questionnaire->publicPath()}}</a>
+                                    </p>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
